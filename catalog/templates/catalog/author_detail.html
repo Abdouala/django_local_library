@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Auteur : {{ author.first_name }} {{ author.last_name }}</h2>
+  <p class="font-italic">{{author.date_of_birth}} - {% if author.date_of_death %} {{author.date_of_death}} {% endif %}</p>
+  <h3>Livres écrits : </h3>
+
+  <ul>
+    {% for copy in author.book_set.all %}
+      <li>
+        {{ copy.title }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
